@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -452,10 +451,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(18)),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 15),
+                  padding: const EdgeInsets.only(left: 5, top: 15),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[_MiniAppContainer()],
+                    children: <Widget>[
+                      _MiniAppContainer(
+                          AssetImage('images/savour.jpg'), 'Savour Foods'),
+                      _MiniAppContainer(
+                          AssetImage('images/tapshop.png'), 'TapShop'),
+                      _MiniAppContainer(
+                          AssetImage('images/saudi.avif'), 'Visit Saudi'),
+                      _MiniAppContainer(
+                          AssetImage('images/pizzamax.png'), 'Pizza Max'),
+                    ],
                   ),
                 ),
               ),
@@ -623,29 +631,43 @@ Widget _DebitCards(Color cardcolor, String text, String subtext) {
 }
 
 ////MINIAPPS CONTAINER CODE////
-Widget _MiniAppContainer() {
+Widget _MiniAppContainer(ImageProvider imagedata, String brandname) {
   return Container(
-      height: 100,
-      width: 80,
-      color: Colors.blue,
+      height: 90,
+      width: 90,
+      color: Colors.white,
       child: Padding(
-          padding: const EdgeInsets.only(left: 3, right: 3, top: 5),
+          padding: const EdgeInsets.only(left: 2, right: 3, top: 5),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        maximumSize: Size(80, 70),
-                        minimumSize: Size(50, 80),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                    onPressed: () {},
-                    child: Image.network(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6EpNcRcJcAM7ZSROlSIXRfWC1xDDeBT1VSQ&s')),
-                SizedBox(
-                  height: 5,
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 2,
+                            spreadRadius: 2,
+                            offset: Offset(0, 2),
+                            color: Colors.grey.shade500),
+                      ],
+                      image: DecorationImage(image: imagedata)),
                 ),
-                Text('Savour Foods')
+                SizedBox(
+                  height: 4,
+                ),
+                Center(
+                  child: Text(
+                    brandname,
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ])));
 }
