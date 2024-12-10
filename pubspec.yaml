@@ -65,6 +65,26 @@ flutter:
       - images/tapshop.png
       - images/saudi.avif
       - images/pizzamax.png
+      - images/doctorconsult.png
+      - images/esports.jpg
+      - images/habibi.jpg
+      - images/jamilsweets.jpg
+      - images/newyorker.jpg
+      - images/onic.png
+      - images/bajao.jpg
+      - images/cricwick.png
+      - images/delishpizza.png
+      - images/donuts.jpg
+      - images/easyticket.png
+      - images/esports.jpg
+      - images/gamebox.png
+      - images/ginyaki.jpg
+      - images/hotnspicy.png
+      - images/lhrbroast.jpg
+      - images/nihari.jpg
+      - images/nikahnama.jpg
+      - images/paratha.png
+      - images/vouch.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

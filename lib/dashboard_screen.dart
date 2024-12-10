@@ -450,21 +450,69 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 decoration: BoxDecoration(
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(18)),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 5, top: 15),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      _MiniAppContainer(
-                          AssetImage('images/savour.jpg'), 'Savour Foods'),
-                      _MiniAppContainer(
-                          AssetImage('images/tapshop.png'), 'TapShop'),
-                      _MiniAppContainer(
-                          AssetImage('images/saudi.avif'), 'Visit Saudi'),
-                      _MiniAppContainer(
-                          AssetImage('images/pizzamax.png'), 'Pizza Max'),
-                    ],
-                  ),
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5, top: 15),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            _MiniAppContainer(
+                                AssetImage('images/savour.jpg'), 'Savour Foods'),
+                            _MiniAppContainer(
+                                AssetImage('images/tapshop.png'), 'TapShop'),
+                            _MiniAppContainer(
+                                AssetImage('images/saudi.avif'), 'Visit Saudi'),
+                            _MiniAppContainer(
+                                AssetImage('images/pizzamax.png'), 'Pizza Max'),
+                            _MiniAppContainer(
+                                AssetImage('images/doctorconsult.png'),
+                                'Consult Doctor'),
+                            _MiniAppContainer(
+                                AssetImage('images/esports.jpg'), 'Esports'),
+                            _MiniAppContainer(
+                                AssetImage('images/habibi.jpg'), 'Habibi'),
+                            _MiniAppContainer(AssetImage('images/jamilsweets.jpg'),
+                                'Jamil Sweets'),
+                            _MiniAppContainer(
+                                AssetImage('images/newyorker.jpg'), 'NewYorker'),
+                            _MiniAppContainer(
+                                AssetImage('images/onic.png'), 'Onic'),
+                            _MiniAppContainer(
+                                AssetImage('images/easyticket.png'), 'Easy Ticket'),
+                            _MiniAppContainer(
+                                AssetImage('images/paratha.png'), 'What a Paratha'),
+                            _MiniAppContainer(
+                                AssetImage('images/vouch.png'), 'Vouch365'),
+                            _MiniAppContainer(
+                                AssetImage('images/nihari.jpg'), 'Ami ki Nihari'),
+                            _MiniAppContainer(
+                                AssetImage('cricwick.png'), 'Cricwick'),
+                            _MiniAppContainer(
+                                AssetImage('images/bajao.jpg'), 'Bajao'),
+                            _MiniAppContainer(
+                                AssetImage('images/hotnspicy.png'), 'HotnSpicy'),
+                            _MiniAppContainer(
+                                AssetImage('images/gamebox.png'), 'Gamebox'),
+                            _MiniAppContainer(
+                                AssetImage('images/donuts.jpg'), 'O Donuts'),
+                            _MiniAppContainer(AssetImage('images/lhrbroast.jpg'),
+                                'Lahore Broast'),
+                            _MiniAppContainer(
+                                AssetImage('images/nikahnama.jpg'), 'Nikahnama'),
+                            _MiniAppContainer(
+                                AssetImage('images/ginyaki.jpg'), 'Ginyaki'),
+                            _MiniAppContainer(
+                                AssetImage('delishpizza.png'), 'Delish Pizza'),
+                            // _MiniAppContainer(
+                            // AssetImage(''), ''),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             )
@@ -555,7 +603,7 @@ Widget _ServicesSectionContainer(
 
 Widget _DebitCards(Color cardcolor, String text, String subtext) {
   return Padding(
-    padding: const EdgeInsets.only(left: 18, right: 15, top: 15, bottom: 20),
+    padding: const EdgeInsets.only(left: 18, right: 5, top: 15, bottom: 20),
     child: Container(
       height: 170,
       width: 170,
@@ -632,20 +680,21 @@ Widget _DebitCards(Color cardcolor, String text, String subtext) {
 
 ////MINIAPPS CONTAINER CODE////
 Widget _MiniAppContainer(ImageProvider imagedata, String brandname) {
-  return Container(
-      height: 90,
-      width: 90,
-      color: Colors.white,
-      child: Padding(
-          padding: const EdgeInsets.only(left: 2, right: 3, top: 5),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
+  return SingleChildScrollView(
+    child: Container(
+        height: 90,
+        width: 87,
+        color: Colors.white,
+        child: Padding(
+            padding: const EdgeInsets.only(left: 2, right: 3, top: 5),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
@@ -655,19 +704,22 @@ Widget _MiniAppContainer(ImageProvider imagedata, String brandname) {
                             offset: Offset(0, 2),
                             color: Colors.grey.shade500),
                       ],
-                      image: DecorationImage(image: imagedata)),
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Center(
-                  child: Text(
-                    brandname,
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
+                      image:
+                          DecorationImage(image: imagedata, fit: BoxFit.cover),
+                    ),
                   ),
-                ),
-              ])));
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Center(
+                    child: Text(
+                      brandname,
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ]))),
+  );
 }
